@@ -17,26 +17,45 @@ function App() {
    
   // },)
   const [user, setUser] = useState(null)
+  const [loggedINUserData, setloggedINUserData] = useState(null)
+  const authdata = useContext(Authcontext)
+
+  // useEffect(() => {
+  //   if(authdata){
+  //     const loggedInUser = localStorage.getItem('loggedInUser')
+  //     if(loggedInUser){
+  //       setUser(loggedInUser.role)
+  //     }
+  //   }
+   
+  // }, [authdata])
+  
 
   const handleLogin = (email,password)=>{
     // console.log(email,password)
     if(email=='admin1@me.com' && password == '123'){
       setUser('admin')
-    }else if(email == 'user12@us.com' && password == '321'){
-      setUser('employee')
+      localStorage.setItem('loggedInUser',JSON.stringify({role:'admin'}))
+    }else if(authdata ){
+      const employee = authdata.employees.find((e)=>e.email==email&&e.password==password )
+
+      if(employee){
+        setUser('employee')
+        setloggedINUserData(employee)
+        localStorage.setItem('loggedInUser',JSON.stringify({role:'employee'}))
+      }
     }
     else{
       alert('somthing went wrong')
     }
   }
   // handleLogin('user12@us.com',321)
-  const data = useContext(Authcontext)
 
   return (
     <>
     {!user ? <Login handleLogin = {handleLogin}/>:''} 
-    {/* if user not exist open login page otherwise null*/}
-    {user == 'admin' ? <AdminDashboard/>:<EmployeeDashboard/>}
+    {/* if user not exist open login page otherwise null */}
+    {user == 'admin' ? <AdminDashboard/>:(user=='employee'?<EmployeeDashboard data = {loggedINUserData}/>:null)}
      {/* <Login/> */}
      {/* <EmployeeDashboard/> */}
      {/* <AdminDashboard/> */}

@@ -1,8 +1,15 @@
 const employees = [
   {
     id: 1,
+    firstname:"arjun",
     email: "employee1@example.com",
     password: "1234",
+    taskcount:{
+        active:3,
+        newtask:1,
+        completed:0,
+        failed:0
+    },
     tasks: [
       {
         taskTitle: "Task 1",
@@ -39,8 +46,15 @@ const employees = [
   },
   {
     id: 2,
+    firstname:"arun",
     email: "employee2@example.com",
     password: "1234",
+    taskcount:{
+      active:3,
+      newtask:1,
+      completed:0,
+      failed:0
+  },
     tasks: [
       {
         taskTitle: "Task 3",
@@ -77,8 +91,15 @@ const employees = [
   },
   {
     id: 3,
+    firstname:"uttam",
     email: "employee3@example.com",
     password: "1234",
+    taskcount:{
+      active:3,
+      newtask:1,
+      completed:0,
+      failed:0
+  },
     tasks: [
       {
         taskTitle: "Task 4",
@@ -115,8 +136,15 @@ const employees = [
   },
   {
     id: 4,
+    firstname:"shubham",
     email: "employee4@example.com",
     password: "1234",
+    taskcount:{
+      active:3,
+      newtask:1,
+      completed:0,
+      failed:0
+  },
     tasks: [
       {
         taskTitle: "Task 5",
@@ -153,8 +181,15 @@ const employees = [
   },
   {
     id: 5,
+    firstname:"arvi",
     email: "employee5@example.com",
     password: "1234",
+    taskcount:{
+      active:3,
+      newtask:1,
+      completed:0,
+      failed:0
+  },
     tasks: [
       {
         taskTitle: "Task 6",
@@ -212,5 +247,5 @@ export const getLocalStorage =()=>{
   //localStorage.getItem get data from localStorage
   const admin = JSON.parse(localStorage.getItem('admin'))
   console.log(employees,admin) 
-  return {employees,admin}
+  return {employees,admin} 
 }
