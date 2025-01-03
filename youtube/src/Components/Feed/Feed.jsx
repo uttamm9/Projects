@@ -9,8 +9,14 @@ import thumbnain6 from '../../assets/thumbnail6.png'
 import thumbnain7 from '../../assets/thumbnail7.png'
 import thumbnain8 from '../../assets/thumbnail8.png'
 import { Link } from 'react-router-dom'
+import {API_KEY} from '../../data'
 
-const Feed = () => {
+const Feed = ({category}) => {
+  const fetchData = async ()=>{
+    const videolist_url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=60&regionCode=US&videoCategoryId=${category}&key=${API_KEY}`
+    await fetch(videolist_url)
+
+  }
   return (
     <div className="feed">
       <Link to={`video/20/43251`} className='card'>
