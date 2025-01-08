@@ -10,111 +10,35 @@ import thumbnain7 from '../../assets/thumbnail7.png'
 import thumbnain8 from '../../assets/thumbnail8.png'
 import { Link } from 'react-router-dom'
 import {API_KEY} from '../../data'
+import { use } from 'react'
+import { valueConverter } from '../../data'
+import moment from 'moment'
 
 const Feed = ({category}) => {
+  const[data, setData] = React.useState([])
   const fetchData = async ()=>{
     const videolist_url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=60&regionCode=US&videoCategoryId=${category}&key=${API_KEY}`
-    await fetch(videolist_url)
+    await fetch(videolist_url).then(res=>res.json()).then(data=>setData(data.items))
 
   }
+
+  React.useEffect(()=>{
+    fetchData()
+  },[category])
+
   return (
     <div className="feed">
-      <Link to={`video/20/43251`} className='card'>
-        <img src={thumbnain1} alt="" />
-        <h2>Best channel to learn coding that help you</h2>
-        <h3>Greetstack</h3>
-        <p>15k views &bull; 2 day ago</p>
+      {data.map((item,index)=>{
+        return (
+          <Link to={`video/${item.snippet.categoryId}/${item.id}`} className='card'>
+        <img src={item.snippet.thumbnails.medium.url} alt="" />
+        <h2>{item.snippet.title}</h2>
+        <h3>{item.snippet.channelTitle}</h3>
+        <p>{valueConverter(item.statistics.viewCount)} views &bull; {moment(item.snippet.publishedAt).fromNow()} ago</p>
       </Link>
-      <div className='card'>
-        <img src={thumbnain2} alt="" />
-        <h2>Best channel to learn coding that help you</h2>
-        <h3>Greetstack</h3>
-        <p>15k views &bull; 2 day ago</p>
-      </div>
-      <div className='card'>
-        <img src={thumbnain3} alt="" />
-        <h2>Best channel to learn coding that help you</h2>
-        <h3>Greetstack</h3>
-        <p>15k views &bull; 2 day ago</p>
-      </div>
-      <div className='card'>
-        <img src={thumbnain4} alt="" />
-        <h2>Best channel to learn coding that help you</h2>
-        <h3>Greetstack</h3>
-        <p>15k views &bull; 2 day ago</p>
-      </div>
-      <div className='card'>
-        <img src={thumbnain5} alt="" />
-        <h2>Best channel to learn coding that help you</h2>
-        <h3>Greetstack</h3>
-        <p>15k views &bull; 2 day ago</p>
-      </div>
-      <div className='card'>
-        <img src={thumbnain6} alt="" />
-        <h2>Best channel to learn coding that help you</h2>
-        <h3>Greetstack</h3>
-        <p>15k views &bull; 2 day ago</p>
-      </div>
-      <div className='card'>
-        <img src={thumbnain7} alt="" />
-        <h2>Best channel to learn coding that help you</h2>
-        <h3>Greetstack</h3>
-        <p>15k views &bull; 2 day ago</p>
-      </div>
-      <div className='card'>
-        <img src={thumbnain8} alt="" />
-        <h2>Best channel to learn coding that help you</h2>
-        <h3>Greetstack</h3>
-        <p>15k views &bull; 2 day ago</p>
-      </div> 
-      <div className='card'>
-        <img src={thumbnain1} alt="" />
-        <h2>Best channel to learn coding that help you</h2>
-        <h3>Greetstack</h3>
-        <p>15k views &bull; 2 day ago</p>
-      </div>
-      <div className='card'>
-        <img src={thumbnain2} alt="" />
-        <h2>Best channel to learn coding that help you</h2>
-        <h3>Greetstack</h3>
-        <p>15k views &bull; 2 day ago</p>
-      </div>
-      <div className='card'>
-        <img src={thumbnain3} alt="" />
-        <h2>Best channel to learn coding that help you</h2>
-        <h3>Greetstack</h3>
-        <p>15k views &bull; 2 day ago</p>
-      </div>
-      <div className='card'>
-        <img src={thumbnain4} alt="" />
-        <h2>Best channel to learn coding that help you</h2>
-        <h3>Greetstack</h3>
-        <p>15k views &bull; 2 day ago</p>
-      </div>
-      <div className='card'>
-        <img src={thumbnain5} alt="" />
-        <h2>Best channel to learn coding that help you</h2>
-        <h3>Greetstack</h3>
-        <p>15k views &bull; 2 day ago</p>
-      </div>
-      <div className='card'>
-        <img src={thumbnain6} alt="" />
-        <h2>Best channel to learn coding that help you</h2>
-        <h3>Greetstack</h3>
-        <p>15k views &bull; 2 day ago</p>
-      </div>
-      <div className='card'>
-        <img src={thumbnain7} alt="" />
-        <h2>Best channel to learn coding that help you</h2>
-        <h3>Greetstack</h3>
-        <p>15k views &bull; 2 day ago</p>
-      </div>
-      <div className='card'>
-        <img src={thumbnain8} alt="" />
-        <h2>Best channel to learn coding that help you</h2>
-        <h3>Greetstack</h3>
-        <p>15k views &bull; 2 day ago</p>
-      </div>
+        )
+      })}
+    
     </div>
   )
 }
