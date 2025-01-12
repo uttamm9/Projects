@@ -22,16 +22,16 @@ const PlayVideo = ({videoId}) => {
 
   const fatchOtherData = async ()=>{
     //Fetch channel data from youtube api
-    const channelData_url = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${apidata.snippet.channelId}&key=${API_KEY}`
+    const channelData_url = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${apidata.snippet.channelId}&key=${API_KEY}`;
     await fetch(channelData_url).then(res=>res.json()).then(data=>setChannelData(data.items[0]))
   }
 
   useEffect(()=>{
-    fatchVideoData()
+    fatchVideoData();
   },[videoId])
 
   useEffect(()=>{
-    fatchOtherData()
+    fatchOtherData();
   },[apidata])
   return (
     <div className='play-video'>
