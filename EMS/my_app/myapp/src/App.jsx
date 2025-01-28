@@ -64,7 +64,7 @@ function App() {
     <>
     {!user ? <Login handleLogin = {handleLogin}/>:''} 
     {/* if user not exist open login page otherwise null */}
-    {user == 'admin' ? <AdminDashboard/>:(user=='employee'?<EmployeeDashboard data = {loggedINUserData}/>:null)}
+    {user == 'admin' ? <AdminDashboard changeUser = {setUser}/>:(user=='employee'?<EmployeeDashboard changeUser = {setUser} data = {loggedINUserData}/>:null)}
      {/* <Login/> */}
      {/* <EmployeeDashboard/> */}
      {/* <AdminDashboard/> */}

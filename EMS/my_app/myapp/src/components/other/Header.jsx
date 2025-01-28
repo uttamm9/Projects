@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-const Header = ({data}) => {
+const Header = (props) => {
   // console.log(data)  
   // const [userName, setUserName] = useState('')
   // useEffect(() => {
@@ -14,7 +14,8 @@ const Header = ({data}) => {
 
   const logOutUser = () => {
     localStorage.removeItem('loggedInUser')
-    window.location.reload()
+    // window.location.reload()
+    props.changeUser(null)
   }
   return (
     <div className='flex items-end justify-between py-5'>

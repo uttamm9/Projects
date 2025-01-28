@@ -14,9 +14,9 @@ const AllTask = () => {
           <h5 className='text-lg font-medium w-1/5 '>Failed Task</h5>
         </div>
         <div className=''>
-      {authData.employees.map((employee) => {
+      {authData.employees.map((employee,idx) => {
         return (
-        <div className='border 2 border-emerald-300 mb-2 py-2 px-4 flex justify-between rounded'>
+        <div key={idx} className='border 2 border-emerald-300 mb-2 py-2 px-4 flex justify-between rounded'>
           <h2 className='text-lg font-medium w-1/5'>{employee.firstname}</h2>
           <h3 className='text-lg font-medium w-1/5 text-blue-400'>{employee.taskcount.newtask}</h3>
           <h5 className='text-lg font-medium w-1/5 text-yellow-400'>{employee.taskcount.active}</h5>
