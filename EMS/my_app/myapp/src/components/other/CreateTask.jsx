@@ -1,7 +1,11 @@
-import React, { act }  from 'react'
+import React from 'react'
+import { useContext }  from 'react'
 import { useState } from 'react'
+import { Authcontext } from '../../context/AuthProvider'
 
 const CreateTask = () => {
+
+  const [userData,setUserData] = useContext(Authcontext)
 
   const [taskTitle, setTaskTitle] = useState('')
   const [date, setDate] = useState('')
@@ -25,22 +29,24 @@ const CreateTask = () => {
       failed:false
     })
     
-    const data = JSON.parse(localStorage.getItem('employees'))
-    console.log(data)
+    const data = userData
 
     data.forEach(function(employee){
       // console.log(employee.firstname)
       if(assignTo == employee.firstname){
         employee.tasks.push(newtask)
+        employee.taskcount.newtask = employee.taskcount.newtask + 1
         console.log(employee)
       }
     })
- 
-    setTaskTitle('')
-    setDate('')
-    setAssignTo('')
-    setCategory('')
-    setDescription('')
+    setUserData(data)
+    console.log(data)
+
+    // setTaskTitle('')
+    // setDate('')
+    // setAssignTo('')
+    // setCategory('')
+    // setDescription('')
   }
   return (
     <div className=' bg-[#1c1c1c] mt-7 rounded p-5'>

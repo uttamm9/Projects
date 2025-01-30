@@ -9,14 +9,14 @@ const AuthProvider = ({children}) => {
 
     useEffect(() => {
       setLocalStorage()
-      const {employees,admin} = getLocalStorage()
-      setUserData({employees,admin})
+      const {employees} = getLocalStorage()
+      setUserData(employees)
     }, [])
     
 
   return (
     <div>
-      <Authcontext.Provider value={userData}>
+      <Authcontext.Provider value={[userData,setUserData]}>
       {children}
       </Authcontext.Provider>
     </div>
