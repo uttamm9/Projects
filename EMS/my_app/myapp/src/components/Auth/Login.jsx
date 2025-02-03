@@ -14,10 +14,9 @@ const Login = ({handleLogin}) => {
     setPassword("")
   }
   return (
-    <div className='flex h-screen w-screen items-center justify-center bg-gradient-to-r from-green-400 to-blue-500'>
+    <div className='flex h-screen w-screen items-center justify-center bg-gray-900'>
        
-      <div className='border-2 rounded-xl border-emerald-500 p-20 shadow-lg
-          bg-white bg-opacity-10'>
+      <div className='border-2 rounded-xl border-emerald-500 p-20 shadow-lg bg-white bg-opacity-10'>
           
           <form
           onSubmit={(e)=>{

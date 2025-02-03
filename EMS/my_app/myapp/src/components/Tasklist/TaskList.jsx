@@ -7,20 +7,20 @@ import CommpletTask from './CommpletTask'
 const TaskList = ({data}) => {
   // console.log(data)
   return (
-    <div id = 'tasklist' className='h-[55%] flex items-center justify-start gap-5 flex-nowrap py-5 overflow-x-auto  bg-red-500 mt-10 rounded-xl'>
+    <div id = 'tasklist' className='h-[55%] flex items-center justify-start gap-5 flex-nowrap py-5 overflow-x-auto  mt-10 rounded-xl'>
 
-      {data.tasks.map((task) => {
+      {data.tasks.map((task, index) => { // Added index as a fallback key
         if(task.active){
-          return <AcceptTask key={task.id} task={task} />
+          return <AcceptTask key={task.taskTitle + index} task={task} /> // Ensure unique key
           } 
         if(task.newtask){
-          return <NewTask key={task.id} task={task}/>
+          return <NewTask key={task.taskTitle + index} task={task}/>
           }
         if(task.completed){
-          return <CommpletTask key={task.id} task={task} />
+          return <CommpletTask key={task.taskTitle + index} task={task} />
           }
         if(task.failed){
-          return <FailedTask key={task.id} task={task}/>
+          return <FailedTask key={task.taskTitle + index} task={task}/>
           }
         
     })}
