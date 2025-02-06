@@ -1,9 +1,14 @@
-import React from 'react'
+import HeaderMain from "../../Components/HeaderMain/HeaderMain";
+import Footer from "../../Components/Footer/Footer";
 
 const TrackOrder = () => {
   return (
-    <div>TrackOrder</div>
-  )
-}
+    <>
+      <HeaderMain />
 
-export default TrackOrder
+      <Footer />
+    </>
+  );
+};
+
+export default TrackOrder;

@@ -1,9 +1,13 @@
-import React from 'react'
+import Header from "../Components/Header/Header";
+import ProductDetails from "./../Components/ProductDetails/ProductDetails";
 
 const ProductDetailPage = () => {
   return (
-    <div>ProductDetailPage</div>
-  )
-}
+    <>
+      <Header />
+      <ProductDetails />
+    </>
+  );
+};
 
-export default ProductDetailPage
+export default ProductDetailPage;

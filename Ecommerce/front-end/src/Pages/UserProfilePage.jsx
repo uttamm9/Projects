@@ -1,9 +1,13 @@
-import React from 'react'
+import Header from "../Components/Header/Header";
+import UserProfileForm from "./../forms/user-profile-form/userProfileForm";
 
 const UserProfilePage = () => {
   return (
-    <div>UserProfilePage</div>
-  )
-}
+    <>
+      <Header />
+      <UserProfileForm />
+    </>
+  );
+};
 
-export default UserProfilePage
+export default UserProfilePage;

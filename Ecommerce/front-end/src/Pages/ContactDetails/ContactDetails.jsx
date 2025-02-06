@@ -1,9 +1,13 @@
-import React from 'react'
+import HeaderMain from "./../../Components/HeaderMain/HeaderMain";
+import Contact from "../../Components/Contact/Contact";
 
-const ContactDetails = () => {
+const ContactDetail = () => {
   return (
-    <div>ContactDetails</div>
-  )
-}
+    <>
+      <HeaderMain />
+      <Contact />
+    </>
+  );
+};
 
-export default ContactDetails
+export default ContactDetail;

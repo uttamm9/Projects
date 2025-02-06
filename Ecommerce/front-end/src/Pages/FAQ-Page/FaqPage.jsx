@@ -1,9 +1,13 @@
-import React from 'react'
+import Faq from "../../Components/FAQ/Faq";
+import HeaderMain from "../../Components/HeaderMain/HeaderMain";
 
 const FaqPage = () => {
   return (
-    <div>FAQPage</div>
-  )
-}
+    <>
+      <HeaderMain />
+      <Faq />
+    </>
+  );
+};
 
-export default FaqPage
+export default FaqPage;

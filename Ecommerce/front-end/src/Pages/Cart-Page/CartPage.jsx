@@ -1,9 +1,13 @@
-import React from 'react'
+import HeaderMain from "../../Components/HeaderMain/HeaderMain";
+import Cart from "../../Components/Cart/Cart";
 
 const CartPage = () => {
   return (
-    <div>CartPage</div>
-  )
-}
+    <>
+      <HeaderMain />
+      <Cart />
+    </>
+  );
+};
 
-export default CartPage
+export default CartPage;
