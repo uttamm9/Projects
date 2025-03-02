@@ -1,9 +1,15 @@
-import React from 'react'
+import MuiPagination from "@mui/material/Pagination";
 
-const Pagination = () => {
+const Pagination = ({ count, page, onPageChange }) => {
   return (
-    <div>Pagination</div>
-  )
-}
+    <MuiPagination
+      count={count}
+      page={page}
+      onChange={(_, newPage) => onPageChange(newPage)}
+      color="primary"
+      shape="rounded"
+    />
+  );
+};
 
-export default Pagination
+export default Pagination;

@@ -16,9 +16,9 @@ const SignUp = () => {
   const [isVerified, setIsVerified] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-
+    const result = await axios.post('http://localhost:8080/')
     console.log({ name, email, password });
   };
 
