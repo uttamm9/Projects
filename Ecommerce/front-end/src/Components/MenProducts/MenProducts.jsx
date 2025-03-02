@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Grid, Box, CircularProgress } from "@mui/material";
+import { Grid2 as Grid, Box, CircularProgress } from "@mui/material";
 import SingleProductCart from "../SingleProductCart/SingleProductCart";
 
 // Dummy API URL
@@ -40,7 +40,7 @@ const MenProducts = () => {
         </Box>
       ) : (
         <Grid container spacing={4}>
-          {products.map((product) => (
+          {Array.isArray(products) && products.map((product) => (
             <Grid item xs={12} sm={6} md={4} key={product.id}>
               <SingleProductCart product={product} />
             </Grid>

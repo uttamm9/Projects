@@ -1,9 +1,3 @@
-import React from 'react'
+const ProductBaseUrl = "http://localhost:8000/products/random_3";
 
-const constApi = () => {
-  return (
-    <div>constApi</div>
-  )
-}
-
-export default constApi
+export default { ProductBaseUrl };

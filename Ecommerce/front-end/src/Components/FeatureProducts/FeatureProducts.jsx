@@ -1,5 +1,5 @@
 
-import { Grid, Box, Typography, CircularProgress } from "@mui/material";
+import { Grid2 as Grid, Box, Typography, CircularProgress } from "@mui/material";
 import SingleProductCart from "../SingleProductCart/SingleProductCart";
 import useFetch from "../../Hooks/FetchApiHook";
 
@@ -12,12 +12,7 @@ const FeatureProducts = () => {
       <Typography variant="h4" align="center" gutterBottom>
         FEATURED PRODUCTS
       </Typography>
-      <Typography
-        variant="body1"
-        color="text.secondary"
-        align="center"
-        paragraph
-      >
+      <Typography variant="body1" color="text.secondary" align="center" paragraph>
         Bring called seed first of third give itself now ment
       </Typography>
 
@@ -28,13 +23,11 @@ const FeatureProducts = () => {
             {error}
           </Typography>
         ) : !data ? (
-          <Box
-            sx={{ display: "flex", justifyContent: "center", width: "100%" }}
-          >
+          <Box sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
             <CircularProgress />
           </Box>
         ) : (
-          data.map((item, index) => (
+          Array.isArray(data) && data.map((item, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
               <SingleProductCart product={item} />
             </Grid>

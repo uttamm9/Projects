@@ -15,6 +15,7 @@ import WomenProductPage from "./Pages/Women/WomenProductPage";
 import UserProfilePage from "./Pages/UserProfilePage";
 import SignInPage from "./forms/Sign-In/SignInForm";
 import SignUp from "./forms/Sign-Up/SignUp";
+import Home_Kitchen_Products from "./Components/Home-Kitchen-Products/Home_Kitchen_Products";
 
 const App = () => {
   return (
@@ -35,6 +36,8 @@ const App = () => {
         <Route path="/user-profile" element={<UserProfilePage />} />
         <Route path="/sign-in" element={<SignInPage />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/home-kitchen" element={<Home_Kitchen_Products />} />
+        
       </Routes>
     </Router>
   );

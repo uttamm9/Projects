@@ -1,5 +1,9 @@
-const Home_Kitchen_products = () => {
-  return <>Home</>;
-};
+import React from 'react'
 
-export default Home_Kitchen_products;
+const Home_Kitchen_Products = () => {
+  return (
+    <div>Home_Kitchen_Products</div>
+  )
+}
+
+export default Home_Kitchen_Products

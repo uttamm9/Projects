@@ -1,5 +1,5 @@
 import React from "react";
-import "./FeatureRow.css";
+import "./FeaturesRow.css";
 
 const FeatureBox = () => {
   return (
